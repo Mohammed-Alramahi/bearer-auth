@@ -7,13 +7,10 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const users = new mongoose.Schema(
-  {
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-  },
-  { toJSON: { virtuals: true } }
-);
+const users = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
 
 // Adds a virtual field to the schema. We can see it, but it never persists
 // So, on every user object ... this.token is now readable!
@@ -46,7 +43,7 @@ users.statics.authenticateWithToken = async function (token) {
   try {
     const parsedToken = jwt.verify(token, process.env.SECRET);
     const user = await this.findOne({ username: parsedToken.username });
-
+    console.log(user);
     if (user) {
       return user;
     }

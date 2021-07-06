@@ -10,4 +10,4 @@ At this point, our auth-server is able to allow a user to create an account as w
 
 https://ramahi-bearer-auth.herokuapp.com/
 
-https://github.com/Mohammed-Alramahi/bearer-auth/pull/1
+https://github.com/Mohammed-Alramahi/bearer-auth/pull/2
